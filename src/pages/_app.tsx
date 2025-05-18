@@ -1,11 +1,10 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { WalletProvider } from '../context/WalletProvider'
+import '../styles/globals.css';
+import { WalletProvider } from '../context/WalletProvider';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }) {
   return (
     <WalletProvider>
       <Component {...pageProps} />
     </WalletProvider>
-  )
+  );
 }
