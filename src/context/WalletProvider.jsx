@@ -1,14 +1,17 @@
+'use client';
+
+import React, { ReactNode } from 'react';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
-import { jsonRpcProvider } from '@wagmi/core/providers/jsonRpc';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
 
-const { chains, publicClient } = configureChains(
+const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum],
   [
     jsonRpcProvider({
       rpc: (chain) => ({
-        http: `https://rpc.ankr.com/${chain.id}`, // Correct format here
+        http: `https://pc.anki.com/${chain.id}`, // Replace with your own RPC provider or fallback
       }),
     }),
   ]
@@ -18,10 +21,10 @@ const config = getDefaultConfig({
   appName: 'LitBound',
   chains,
   publicClient,
-  walletConnectProjectId: 'YOUR_WALLETCONNECT_PROJECT_ID',
+  walletConnectProjectId: 'YOUR_WALLETCONNECT_PROJECT_ID', // Replace with your actual project ID
 });
 
-export function WalletProvider({ children }: { children: React.ReactNode }) {
+export function WalletProvider({ children }: { children: ReactNode }) {
   return (
     <WagmiConfig config={config}>
       <ConnectKitProvider>
