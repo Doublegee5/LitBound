@@ -1,10 +1,7 @@
-import '../styles/globals.css';
-import { WalletProvider } from '../context/WalletProvider';
+// This is the root app component that wraps all pages
+
+import '../styles/globals.css'  // Make sure this file exists or comment this out
 
 export default function App({ Component, pageProps }) {
-  return (
-    <WalletProvider>
-      <Component {...pageProps} />
-    </WalletProvider>
-  );
+  return <Component {...pageProps} />
 }
