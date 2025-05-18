@@ -1,49 +1,34 @@
-import Head from 'next/head';
-import ConnectWallet from '../components/ConnectWallet';
-
-// The homepage
+// pages/index.js
 
 export default function Home() {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
+    <div style={{
+      maxWidth: '600px',
+      margin: '3rem auto',
+      padding: '2rem',
+      fontFamily: 'Arial, sans-serif',
+      backgroundColor: '#fff',
+      boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+      borderRadius: '8px',
+      textAlign: 'center'
+    }}>
       <h1>Welcome to LitBound</h1>
       <p>Empowering creators with Web3 and beyond. Build, connect, and grow your digital future.</p>
-      <button onClick={() => alert('Get Started Clicked!')}>Get Started</button>
+      <button
+        style={{
+          marginTop: '1.5rem',
+          padding: '0.75rem 1.5rem',
+          fontSize: '1rem',
+          backgroundColor: '#0070f3',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}
+        onClick={() => alert('Get Started Clicked!')}
+      >
+        Get Started
+      </button>
     </div>
   )
-}
-      <Head>
-        <title>LitBound</title>
-      </Head>
-      
-      <header>
-        <nav>
-          <span>Home</span>
-          <span>Features</span>
-          <span>Contact</span>
-        </nav>
-      </header>
-
-      <main>
-        <h1>Welcome to LitBound</h1>
-        <p>Empowering creators with Web3 and beyond. Build, connect, and grow your digital future.</p>
-
-        {/* Web3 Connect Button */}
-        <ConnectWallet />
-
-        <section>
-          <h2>Why LitBound?</h2>
-          <ul>
-            <li><strong>Decentralized Access</strong> — Secure and open for everyone, powered by blockchain.</li>
-            <li><strong>Creative Ownership</strong> — Keep full control of your content and its value.</li>
-            <li><strong>Built for Growth</strong> — Scalable, responsive, and easy to expand as your community grows.</li>
-          </ul>
-        </section>
-      </main>
-
-      <footer>
-        <p>© 2025 LitBound. All rights reserved.</p>
-      </footer>
-    </div>
-  );
 }
