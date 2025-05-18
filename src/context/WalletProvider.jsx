@@ -1,28 +1,25 @@
-// src/context/WalletProvider.jsx
-'use client'; // If you use Next.js 13 app directory, else remove this line
+import { WagmiConfig, configureChains, createConfig } from 'wagmi'
+import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains'
+import { jsonRpcProvider } from '@wagmi/core/providers/jsonRpc'
+import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
 
-import { WagmiConfig, createClient, configureChains, mainnet } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
-import { ConnectKitProvider } from 'connectkit';
+// Example: configure RPC
+const { chains, publicClient } = configureChains(
+  [mainnet, polygon, optimism, arbitrum],
+  [
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://rpc.ankr.com/${chain.id}`, // Replace with your own RPC or a fallback
+      }),
+    }),
+  ]
+)
 
-// Configure chains and providers
-const { chains, provider } = configureChains(
-  [mainnet],
-  [publicProvider()]
-);
-
-// Create wagmi client
-const wagmiClient = createClient({
-  autoConnect: true,
-  provider,
-});
-
-export default function WalletProvider({ children }) {
-  return (
-    <WagmiConfig client={wagmiClient}>
-      <ConnectKitProvider>
-        {children}
-      </ConnectKitProvider>
-    </WagmiConfig>
-  );
-}
+const wagmiConfig = createConfig(
+  getDefaultConfig({
+    appName: 'LitBound',
+    chains,
+    publicClient,
+    walletConnectProjectId: 'YOUR_WALLETCONNECT_PROJECT_ID',
+  })
+)
