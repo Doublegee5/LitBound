@@ -1,9 +1,17 @@
 import Head from 'next/head';
 import ConnectWallet from '../components/ConnectWallet';
 
+// The homepage
+
 export default function Home() {
   return (
-    <div>
+    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
+      <h1>Welcome to LitBound</h1>
+      <p>Empowering creators with Web3 and beyond. Build, connect, and grow your digital future.</p>
+      <button onClick={() => alert('Get Started Clicked!')}>Get Started</button>
+    </div>
+  )
+}
       <Head>
         <title>LitBound</title>
       </Head>
