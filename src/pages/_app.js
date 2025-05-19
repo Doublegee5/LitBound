@@ -1,31 +1,27 @@
-import '../styles/globals.css';
-import { WagmiConfig, createClient, chain, configureChains } from 'wagmi';
+import '@/styles/globals.css';
+import { WagmiConfig, createConfig, configureChains } from 'wagmi';
+import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
-import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
-import '@rainbow-me/rainbowkit/styles.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const { chains, provider } = configureChains(
-  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+const { chains, publicClient } = configureChains(
+  [mainnet, polygon, optimism, arbitrum],
   [publicProvider()]
 );
 
-const { connectors } = getDefaultWallets({
-  appName: 'LitBound',
-  chains,
+const config = createConfig({
+  autoConnect: true,
+  publicClient,
 });
 
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-});
+const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }) {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
+    <WagmiConfig config={config}>
+      <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-      </RainbowKitProvider>
+      </QueryClientProvider>
     </WagmiConfig>
   );
 }
