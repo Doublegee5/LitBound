@@ -16,7 +16,7 @@
     "autoprefixer": "^10.4.14",
     "wagmi": "^2.4.0",
     "@rainbow-me/rainbowkit": "^2.2.5",
-    "viem": "^1.22.2"
+    "viem": "^1.21.0"
   }
 }
     
