@@ -1,4 +1,3 @@
-// src/pages/_app.js
 import '../styles/globals.css';
 import { WagmiConfig, createConfig, configureChains } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
