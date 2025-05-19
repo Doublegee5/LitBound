@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['lens.infura-ipfs.io'],
+    domains: ["ipfs.io", "lens.infura-ipfs.io", "pbs.twimg.com"], // For Lens profile pics
   },
 };
 
