@@ -1,0 +1,27 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+export default function Home() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+      <h1 className="text-4xl font-bold mb-4">Welcome to LitBound</h1>
+      <p className="mb-8 text-center max-w-xl text-gray-700">
+        Empowering creators with Web3 and beyond. Build, connect, and grow your digital future.
+      </p>
+
+      <ConnectButton />
+
+      <div className="mt-12 max-w-xl text-center">
+        <h2 className="text-2xl font-semibold mb-4">What We Offer</h2>
+        <ul className="text-gray-700 space-y-3 list-disc list-inside">
+          <li><strong>Web3 Tools:</strong> Access decentralized tools to power your creativity in a borderless economy.</li>
+          <li><strong>Creator Network:</strong> Collaborate and grow with a community of like-minded builders and artists.</li>
+          <li><strong>Education & Growth:</strong> Learn, adapt, and grow with resources tailored for the modern digital economy.</li>
+        </ul>
+      </div>
+
+      <footer className="mt-20 text-gray-500 text-sm">
+        © 2025 LitBound. All rights reserved.
+      </footer>
+    </div>
+  );
+}
