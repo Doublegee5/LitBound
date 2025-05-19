@@ -1,15 +1,36 @@
 import '../styles/globals.css';
-import { LensProvider } from '@lens-protocol/react-web';
-import { ConnectKitProvider } from 'connectkit';
+import { WagmiConfig, createClient, configureChains } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
+import { ConnectKitProvider, getDefaultClient } from 'connectkit';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-function MyApp({ Component, pageProps }) {
+const queryClient = new QueryClient();
+
+const { chains, provider, webSocketProvider } = configureChains(
+  [mainnet],
+  [publicProvider()]
+);
+
+const client = createClient(
+  getDefaultClient({
+    appName: 'LitBound',
+    chains,
+    provider,
+    webSocketProvider,
+  })
+);
+
+export default function App({ Component, pageProps }) {
   return (
-    <LensProvider apiUrl="https://api.lens.dev">
-      <ConnectKitProvider>
-        <Component {...pageProps} />
-      </ConnectKitProvider>
-    </LensProvider>
+    <WagmiConfig client={client}>
+      <QueryClientProvider client={queryClient}>
+        <ConnectKitProvider>
+          <Component {...pageProps} />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </ConnectKitProvider>
+      </QueryClientProvider>
+    </WagmiConfig>
   );
 }
-
-export default MyApp;
