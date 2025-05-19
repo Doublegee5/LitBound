@@ -8,10 +8,11 @@ export default function Home() {
         <p className="mb-6 text-gray-700">
           Empowering creators with Web3 and beyond. Build, connect, and grow your digital future.
         </p>
-        <Link href="/get-started">
-          <a className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
-            Get Started
-          </a>
+        <Link
+          href="/get-started"
+          className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
+        >
+          Get Started
         </Link>
       </div>
 
