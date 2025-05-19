@@ -1,7 +1,7 @@
 // pages/_app.jsx
 
 import '../styles/globals.css';  // your Tailwind CSS import
-import Header from '../src/components/Header';
+import Header from '..components/Header';
 
 export default function App({ Component, pageProps }) {
   return (
