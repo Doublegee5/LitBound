@@ -1,0 +1,108 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6; /* gray-100 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb; /* blue-600 */
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #2563eb;
+}
+
+.main {
+  max-width: 480px;
+  background-color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #111827; /* gray-900 */
+}
+
+.description {
+  font-size: 1.125rem;
+  color: #4b5563; /* gray-700 */
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1e40af; /* blue-800 */
+}
+
+.offerings {
+  margin-top: 3rem;
+  text-align: left;
+  color: #374151;
+}
+
+.offerings h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.offerings ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.footer {
+  margin-top: 4rem;
+  color: #9ca3af; /* gray-400 */
+  font-size: 0.875rem;
+  text-align: center;
+}
