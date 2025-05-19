@@ -1,7 +1,8 @@
 export default function GetStarted() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white text-center p-8">
-      <h1 className="text-3xl font-bold">Let's Get Started!</h1>
+    <div>
+      <h1>Get Started</h1>
+      <p>Begin your journey of reading and sharing on LitBound.</p>
     </div>
   );
 }
