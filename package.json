@@ -1,5 +1,4 @@
-{
-  "name": "litbound",
+name": "litbound",
   "version": "1.0.0",
   "private": true,
   "scripts": {
