@@ -1,20 +1,17 @@
-name": "litbound",
+{
+  "name": "litbound",
   "version": "1.0.0",
-  "private": true,
+  "description": "LitBound project",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.4.3"
-  }
-}
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "wagmi": "^2.4.0",
+    "viem": "^1.22.2",
+    "tailwindcss": "^3.4.1",
+    
