@@ -1,33 +1,28 @@
-// pages/_app.js
-
 import '../styles/globals.css';
+import { WagmiConfig, createClient, chain, configureChains } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
+import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { configureChains, createConfig, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
-import { http } from 'wagmi'; // <- THIS is now the correct import
-
-const { chains, publicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum],
-  [http()] // <- use http provider here
+const { chains, provider } = configureChains(
+  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
   appName: 'LitBound',
-  projectId: 'YOUR_PROJECT_ID', // Use your WalletConnect project ID
   chains,
 });
 
-const wagmiConfig = createConfig({
+const wagmiClient = createClient({
   autoConnect: true,
   connectors,
-  publicClient,
+  provider,
 });
 
 export default function App({ Component, pageProps }) {
   return (
-    <WagmiConfig config={wagmiConfig}>
+    <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <Component {...pageProps} />
       </RainbowKitProvider>
